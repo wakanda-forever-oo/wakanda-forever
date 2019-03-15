@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Wakanda Forever</string>
+    <string name="title_activity_base_drawer">BaseDrawerActivity</string>
 </resources>
