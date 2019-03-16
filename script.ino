@@ -5,6 +5,7 @@ const int soilRead = A0;
 const int dht11Read = A1;
 const int waterRead = A2; 
 const int fireRead = A3;
+const int pinOut = 8;
 
 dht DHT;
 
@@ -12,6 +13,7 @@ void setup()
 {
   Serial.begin(9600);
   delay(1000);
+  pinMode(pinOut, OUTPUT);
 }
 
 void loop()
@@ -21,6 +23,9 @@ void loop()
   int fireValue = analogRead(fireValue);
   double moisture_percentage = ( 100 - ( (sensorValue/1023.00) * 100 ) );
   DHT.read11(dht11Read);
+
+  digitalWrite(pinOut, HIGH);
+
 
   delay(10000);
 
@@ -39,5 +44,13 @@ void loop()
   Serial.print("fire=");
   Serial.print(fireValue);
   Serial.print("\n");
+
+  
   delay(1000);
+
+  digitalWrite(pinOut, LOW);
+
+  delay(5000);
+
+  
 }
