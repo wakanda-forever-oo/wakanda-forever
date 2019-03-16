@@ -23,7 +23,6 @@ public class FarmObjectDto {
 	private Float fire;
 	private Float pressure;
 	private String createdAt;
-	private List<IllnessDto> illnesses;
 	
 	private String convertDtoDate(Timestamp date) {
 		System.out.println("Called convertDtoDate");
