@@ -19,7 +19,7 @@ public class IllnessDto {
 	private String createdAt;
 	
 	private String convertDtoDate(Timestamp date) {
-		System.out.println("Called convertDtoDate");
+//		System.out.println("Called convertDtoDate");
 		return new SimpleDateFormat("dd-MM-yyyy hh:mm").format(date.getTime());
 	}
 	

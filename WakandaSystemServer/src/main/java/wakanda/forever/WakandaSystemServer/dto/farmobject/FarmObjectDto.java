@@ -2,12 +2,10 @@ package wakanda.forever.WakandaSystemServer.dto.farmobject;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import wakanda.forever.WakandaSystemServer.dto.illness.IllnessDto;
 import wakanda.forever.WakandaSystemServer.model.farmobject.FarmObject;
 
 @Data
@@ -25,7 +23,7 @@ public class FarmObjectDto {
 	private String createdAt;
 	
 	private String convertDtoDate(Timestamp date) {
-		System.out.println("Called convertDtoDate");
+//		System.out.println("Called convertDtoDate");
 		return new SimpleDateFormat("dd-MM-yyyy hh:mm").format(date.getTime());		
 	}
 	
