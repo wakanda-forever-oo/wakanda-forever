@@ -16,8 +16,7 @@ import wakanda.forever.WakandaSystemServer.dto.illness.IllnessDto;
 @Data
 public class Illness {
 
-	@Id
-	@NotNull
+	@Id	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
