@@ -13,6 +13,7 @@ import wakanda.forever.WakandaSystemServer.model.farmobject.FarmObject;
 @NoArgsConstructor
 public class FarmObjectDto {
 	
+	private Long id;
 	private Float humidity;
 	private Float temperature;
 	private Float waterLevel;
@@ -21,6 +22,7 @@ public class FarmObjectDto {
 	private Float pressure;
 	
 	public FarmObjectDto(FarmObject farmObject) {
+		this.id = farmObject.getId();
 		this.humidity = farmObject.getHumidity();
 		this.temperature = farmObject.getTemperature();
 		this.waterLevel = farmObject.getWaterLevel();

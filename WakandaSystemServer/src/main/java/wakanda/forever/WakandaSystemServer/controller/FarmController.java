@@ -38,7 +38,7 @@ public class FarmController {
 	@GetMapping("/all")
 	public List<FarmObjectDto> getAll() {
 		List<FarmObjectDto> dtos = new ArrayList<>();
-		farmRepository.findAll().forEach(object -> {
+		farmRepository.findAllSortedByDate().forEach(object -> {
 			dtos.add(new FarmObjectDto(object));
 		});
 		

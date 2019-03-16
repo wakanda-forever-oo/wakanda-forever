@@ -38,7 +38,7 @@ public class IllnessController {
 	@GetMapping("/all")
 	public List<IllnessDto> getAll() {
 		List<IllnessDto> dtos = new ArrayList<>();
-		illnessRepository.findAll().forEach(illness -> {
+		illnessRepository.findAllSortedByDate().forEach(illness -> {
 			dtos.add(new IllnessDto(illness));
 		});
 		

@@ -10,10 +10,12 @@ import wakanda.forever.WakandaSystemServer.model.illness.Illness;
 @NoArgsConstructor
 public class IllnessDto {
 
+	private Long id;
 	private String name;
 	private Float probability;
 	
 	public IllnessDto(Illness entity) {
+		this.id = entity.getId();
 		this.name = entity.getName();
 		this.probability = entity.getProbability();
 	}
