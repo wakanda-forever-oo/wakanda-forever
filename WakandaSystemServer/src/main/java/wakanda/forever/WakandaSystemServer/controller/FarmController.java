@@ -32,7 +32,7 @@ public class FarmController {
 		FarmObject farmObject = new FarmObject(farmObjectDto);
 		farmObject.setCreatedAt(new Timestamp(System.currentTimeMillis()));
 		farmObject.setModifiedAt(new Timestamp(System.currentTimeMillis()));
-		return farmRepository.save(farmObject);			
+		return farmRepository.save(farmObject);	
 	}
 	
 	@GetMapping("/all")

@@ -18,12 +18,14 @@ public class FarmObjectDto {
 	private Float waterLevel;
 	private Float soilMoisture;
 	private Float fire;
+	private Float pressure;
 	
 	public FarmObjectDto(FarmObject farmObject) {
 		this.humidity = farmObject.getHumidity();
 		this.temperature = farmObject.getTemperature();
-		this.waterLevel = farmObject.getPressure();
+		this.waterLevel = farmObject.getWaterLevel();
 		this.soilMoisture = farmObject.getSoilMoisture();
 		this.fire = farmObject.getFire();
+		this.pressure = farmObject.getPressure();
 	}
 }

@@ -42,16 +42,21 @@ public class FarmObject{
 	@Column(name = "temperature")
 	private Float temperature;
 	
-	@Column(name = "pressure")
-	private Float pressure;
+	@Column(name = "water_level")
+	private Float waterLevel;
 	
 	@Column(name = "fire")
 	private Float fire;
 	
+	@Column(name = "pressure")
+	private Float pressure;
+	
 	public FarmObject(FarmObjectDto dto) {
 		this.soilMoisture = dto.getSoilMoisture();
 		this.humidity = dto.getHumidity();
-		this.pressure = dto.getWaterLevel();
+		this.waterLevel = dto.getWaterLevel();
 		this.temperature = dto.getTemperature();
+		this.fire = dto.getFire();
+		this.pressure = dto.getPressure();
 	}
 }
