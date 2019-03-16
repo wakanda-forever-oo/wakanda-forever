@@ -9,7 +9,7 @@ import wakandaforever.wakandaforever.parsers.base.JsonParser;
 @Module
 public class ParsersModule {
     @Provides
-    public JsonParser<FarmObject> superheroJsonParser() {
+    public JsonParser<FarmObject> farmObjectJsonParser() {
         return new GsonJsonParser<>(FarmObject.class, FarmObject[].class);
     }
 }

@@ -12,7 +12,7 @@ import wakandaforever.wakandaforever.validators.base.Validator;
 public class ValidatorsModule {
     @Provides
     @Singleton
-    public Validator<FarmObject> superheroValidator() {
+    public Validator<FarmObject> farmObjectValidator() {
         return new FarmObjectValidator();
     }
 }

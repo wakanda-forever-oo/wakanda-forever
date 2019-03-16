@@ -14,7 +14,7 @@ import butterknife.ButterKnife;
 import wakandaforever.wakandaforever.R;
 import wakandaforever.wakandaforever.models.FarmObject;
 
-public class FarmObjectDrailsFragment
+public class FarmObjectDetailsFragment
         extends Fragment
         implements FarmObjectDetailsContracts.View {
 
@@ -27,7 +27,7 @@ public class FarmObjectDrailsFragment
     TextView mSecretIdentityTextView;
 
     @Inject
-    public FarmObjectDrailsFragment() {
+    public FarmObjectDetailsFragment() {
         // Required empty public constructor
     }
 
@@ -75,4 +75,5 @@ public class FarmObjectDrailsFragment
 
     }
 }
+
 

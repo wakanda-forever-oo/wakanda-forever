@@ -10,7 +10,7 @@ import wakandaforever.wakandaforever.views.farmobjectlist.FarmObjectAdapter;
 @Module
 public class ViewsModule {
     @Provides
-    public RecyclerView.Adapter<FarmObjectAdapter.SuperheroViewHolder> superheroArrayAdapter(Context context) {
+    public RecyclerView.Adapter<FarmObjectAdapter.FarmObjectViewHolder> farmObjectArrayAdapter(Context context) {
         return new FarmObjectAdapter();
     }
 }

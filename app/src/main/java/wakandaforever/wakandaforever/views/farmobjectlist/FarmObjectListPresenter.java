@@ -54,8 +54,8 @@ public class FarmObjectListPresenter
 //        mView.showLoading();
 //        Disposable observable = Observable
 //                .create((ObservableOnSubscribe<List<FarmObject>>) emitter -> {
-//                    List<FarmObject> superheroes = mFarmObjectService.getFilteredFarmObjects(pattern);
-//                    emitter.onNext(superheroes);
+//                    List<FarmObject> farmObjects = mFarmObjectService.getFilteredFarmObjects(pattern);
+//                    emitter.onNext(farmObjects);
 //                    emitter.onComplete();
 //                })
 //                .subscribeOn(mSchedulerProvider.background())

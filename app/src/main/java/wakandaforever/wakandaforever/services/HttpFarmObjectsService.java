@@ -15,10 +15,10 @@ public class HttpFarmObjectsService implements FarmObjectsService {
     private final Validator<FarmObject> mFarmObjectValidator;
 
     public HttpFarmObjectsService(
-            Repository<FarmObject> superheroesRepository,
-            Validator<FarmObject> superheroValidator) {
-        mFarmObjectsRepository = superheroesRepository;
-        mFarmObjectValidator = superheroValidator;
+            Repository<FarmObject> farmObjectRepository,
+            Validator<FarmObject> farmObjectValidator) {
+        mFarmObjectsRepository = farmObjectRepository;
+        mFarmObjectValidator = farmObjectValidator;
     }
 
     @Override

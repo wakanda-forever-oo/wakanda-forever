@@ -9,9 +9,14 @@ import javax.inject.Inject;
 import butterknife.ButterKnife;
 import dagger.android.support.DaggerAppCompatActivity;
 import wakandaforever.wakandaforever.R;
+import wakandaforever.wakandaforever.models.FarmObject;
+import wakandaforever.wakandaforever.views.BaseDrawerActivity;
+import wakandaforever.wakandaforever.views.farmobjectdetails.FarmObjectDetailsActivity;
+import wakandaforever.wakandaforever.views.farmobjectdetails.FarmObjectDetailsFragment;
+import wakandaforever.wakandaforever.views.farmobjectdetails.FarmObjectDetailsPresenter;
 
 public class FarmObjectListActivity
-        extends DaggerAppCompatActivity
+        extends BaseDrawerActivity
         implements FarmObjectListContracts.Navigator {
     public static final long IDENTIFIER = 49;
 
@@ -36,16 +41,16 @@ public class FarmObjectListActivity
 
         setSupportActionBar(getToolbar());
 
-        mSuperheroesListFragment.setNavigator(this);
-        mSuperheroesListFragment.setPresenter(mSuperheroesListPresenter);
+        mFarmObjectListFragment.setNavigator(this);
+        mFarmObjectListFragment.setPresenter(mFarmObjectListPresenter);
 
         FragmentTransaction transaction = getFragmentManager()
                 .beginTransaction()
-                .replace(R.id.content, mFarmObjectsListFragment);
+                .replace(R.id.content, mFarmObjectListFragment);
 
         if (!isPhone()) {
-            mSuperheroDetailsFragment.setPresenter(mSuperheroDetailsPresenter);
-            transaction.replace(R.id.content_details, mSuperheroDetailsFragment);
+            mFarmObjectDetailsFragment.setPresenter(mFarmObjectDetailsPresenter);
+            transaction.replace(R.id.content_details, mFarmObjectDetailsFragment);
         }
 
         transaction.commit();
@@ -61,19 +66,19 @@ public class FarmObjectListActivity
     }
 
     @Override
-    public void navigateWith(Superhero superhero) {
+    public void navigateWith(FarmObject farmObject) {
         if (isPhone()) {
             Intent intent = new Intent(
                     this,
-                    SuperheroDetailsActivity.class
+                    FarmObjectDetailsActivity.class
             );
 
-            intent.putExtra(SuperheroDetailsActivity.EXTRA_KEY, superhero);
+            intent.putExtra(FarmObjectDetailsActivity.EXTRA_KEY, farmObject);
 
             startActivity(intent);
         } else {
-            mSuperheroDetailsPresenter.setSuperheroId(superhero.getId());
-            mSuperheroDetailsPresenter.loadSuperhero();
+            //mFarmObjectDetailsPresenter.setFarmObjectId(farmObject.getId());
+            mFarmObjectDetailsPresenter.loadFarmObject();
         }
     }
 }

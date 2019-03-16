@@ -88,11 +88,11 @@ public class FarmObjectAdapter extends RecyclerView.Adapter<FarmObjectAdapter.Fa
         }
 
         void bind(FarmObject farmObject) {
-            mNameTextView.setText(farmObject.getName());
-            mSecretIdentityTextView.setText(farmObject.getSecretIdentity());
-            Picasso.get()
-                    .load(farmObject.getImageUrl())
-                    .into(mFarmObjectImageView);
+            mNameTextView.setText(String.valueOf(farmObject.getFire()));
+//            mSecretIdentityTextView.setText(farmObject.getSecretIdentity());
+//            Picasso.get()
+//                    .load(farmObject.getImageUrl())
+//                    .into(mFarmObjectImageView);
             mFarmObject = farmObject;
         }
 

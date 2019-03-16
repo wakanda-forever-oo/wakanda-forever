@@ -11,7 +11,7 @@ import wakandaforever.wakandaforever.validators.base.Validator;
 @Module
 public class ServicesModule {
     @Provides
-    public FarmObjectsService superheroesService(Repository<FarmObject> repository, Validator<FarmObject> validator) {
+    public FarmObjectsService farmObjectsService(Repository<FarmObject> repository, Validator<FarmObject> validator) {
         return new HttpFarmObjectsService(repository, validator);
     }
 }

@@ -26,7 +26,7 @@ public class FarmObjectListFragment
         implements FarmObjectListContracts.View, FarmObjectAdapter.OnFarmObjectClickListener {
     private FarmObjectListContracts.Navigator mNavigator;
 
-    @BindView(R.id.lv_farm_objects)
+    @BindView(R.id.lv_farmobjects)
     RecyclerView mFarmObjectsView;
 
     @BindView(R.id.loading)

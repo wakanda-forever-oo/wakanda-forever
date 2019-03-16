@@ -2,6 +2,7 @@ package wakandaforever.wakandaforever.diconfig;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
+import wakandaforever.wakandaforever.views.farmobjectdetails.FarmObjectDetailsActivity;
 import wakandaforever.wakandaforever.views.farmobjectlist.FarmObjectListActivity;
 
 @Module
@@ -12,10 +13,10 @@ public abstract class ActivityBindingModule {
     )
     abstract FarmObjectListActivity farmObjectListActivity();
 
-//    @ActivityScoped
-//    @ContributesAndroidInjector(
-//            modules = FarmObjectDetailsModule.class
-//    )
-//    abstract FarmObjectDetailsActivity farmObjectDetailsActivity();
+    @ActivityScoped
+    @ContributesAndroidInjector(
+            modules = FarmObjectDetailsModule.class
+    )
+    abstract FarmObjectDetailsActivity farmObjectDetailsActivity();
 }
 

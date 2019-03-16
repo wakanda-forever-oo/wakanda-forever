@@ -32,7 +32,7 @@ public interface FarmObjectListContracts {
     }
 
     interface Navigator {
-        void navigateWith(FarmObject superhero);
+        void navigateWith(FarmObject farmObject);
     }
 }
 

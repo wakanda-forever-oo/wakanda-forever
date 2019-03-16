@@ -2,6 +2,7 @@ package wakandaforever.wakandaforever;
 
 import dagger.android.AndroidInjector;
 import dagger.android.DaggerApplication;
+import wakandaforever.wakandaforever.diconfig.DaggerAppComponent;
 
 public class AndroidApplication extends DaggerApplication {
     @Override
