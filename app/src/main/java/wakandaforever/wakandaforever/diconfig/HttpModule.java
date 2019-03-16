@@ -4,6 +4,9 @@ import javax.inject.Named;
 
 import dagger.Module;
 import dagger.Provides;
+import wakandaforever.wakandaforever.Constants;
+import wakandaforever.wakandaforever.http.HttpRequester;
+import wakandaforever.wakandaforever.http.OkHttpHttpRequester;
 
 @Module
 public class HttpModule {

@@ -3,6 +3,8 @@ package wakandaforever.wakandaforever.repositories;
 import java.io.IOException;
 import java.util.List;
 
+import wakandaforever.wakandaforever.http.HttpRequester;
+import wakandaforever.wakandaforever.parsers.base.JsonParser;
 import wakandaforever.wakandaforever.repositories.base.Repository;
 
 public class HttpRepository<T> implements Repository<T> {

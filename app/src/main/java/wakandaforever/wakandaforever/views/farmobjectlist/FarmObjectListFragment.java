@@ -3,7 +3,6 @@ package wakandaforever.wakandaforever.views.farmobjectlist;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,9 +11,6 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.minkov.androidapp.R;
-import com.minkov.androidapp.models.Superhero;
-
 import java.util.List;
 
 import javax.inject.Inject;
@@ -22,14 +18,16 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnTextChanged;
+import wakandaforever.wakandaforever.R;
+import wakandaforever.wakandaforever.models.FarmObject;
 
-public class SuperheroesListFragment
+public class FarmObjectListFragment
         extends Fragment
-        implements SuperheroesListContracts.View, SuperheroesAdapter.OnSuperheroClickListener {
-    private SuperheroesListContracts.Navigator mNavigator;
+        implements FarmObjectListContracts.View, FarmObjectAdapter.OnFarmObjectClickListener {
+    private FarmObjectListContracts.Navigator mNavigator;
 
-    @BindView(R.id.lv_superheroes)
-    RecyclerView mSuperheroesView;
+    @BindView(R.id.lv_farm_objects)
+    RecyclerView mFarmObjectsView;
 
     @BindView(R.id.loading)
     ProgressBar mLoadingView;
@@ -38,29 +36,29 @@ public class SuperheroesListFragment
     EditText mFilterEditText;
 
     @Inject
-    SuperheroesAdapter mSuperheroesAdapter;
+    FarmObjectAdapter mFarmObjectAdapter;
 
-    private SuperheroesListContracts.Presenter mPresenter;
-    private GridLayoutManager mSuperheroesViewLayoutManager;
+    private FarmObjectListContracts.Presenter mPresenter;
+    private GridLayoutManager mFarmObjectViewLayoutManager;
 
     @Inject
-    public SuperheroesListFragment() {
+    public FarmObjectListFragment() {
         // Required empty public constructor
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_superheroes_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_farm_object_list, container, false);
 
         // ButterKnife is applied
         ButterKnife.bind(this, view);
 
-        mSuperheroesAdapter.setOnSuperheroClickListener(this);
+        mFarmObjectAdapter.setOnFarmObjectClickListener(this);
 
-        mSuperheroesView.setAdapter(mSuperheroesAdapter);
-        mSuperheroesViewLayoutManager = new GridLayoutManager(getContext(), 2);
-        mSuperheroesView.setLayoutManager(mSuperheroesViewLayoutManager);
+        mFarmObjectsView.setAdapter(mFarmObjectAdapter);
+        mFarmObjectViewLayoutManager = new GridLayoutManager(getContext(), 2);
+        mFarmObjectsView.setLayoutManager(mFarmObjectViewLayoutManager);
         return view;
     }
 
@@ -68,25 +66,25 @@ public class SuperheroesListFragment
     public void onResume() {
         super.onResume();
         mPresenter.subscribe(this);
-        mPresenter.loadSuperheroes();
+        mPresenter.loadFarmObjects();
     }
 
     @Override
-    public void setPresenter(SuperheroesListContracts.Presenter presenter) {
+    public void setPresenter(FarmObjectListContracts.Presenter presenter) {
         mPresenter = presenter;
     }
 
     @Override
-    public void showSuperheroes(List<Superhero> superheroes) {
-        mSuperheroesAdapter.clear();
-        mSuperheroesAdapter.addAll(superheroes);
-        mSuperheroesAdapter.notifyDataSetChanged();
+    public void showFarmObjects(List<FarmObject> farmObjects) {
+        mFarmObjectAdapter.clear();
+        mFarmObjectAdapter.addAll(farmObjects);
+        mFarmObjectAdapter.notifyDataSetChanged();
     }
 
     @Override
-    public void showEmptySuperheroesList() {
+    public void showEmptyFarmObjectsList() {
         Toast.makeText(getContext(),
-                "No superheroes",
+                "No farm objects",
                 Toast.LENGTH_LONG)
                 .show();
     }
@@ -99,33 +97,33 @@ public class SuperheroesListFragment
 
     @Override
     public void showLoading() {
-        mSuperheroesView.setVisibility(View.GONE);
+        mFarmObjectsView.setVisibility(View.GONE);
         mLoadingView.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideLoading() {
-        mSuperheroesView.setVisibility(View.VISIBLE);
+        mFarmObjectsView.setVisibility(View.VISIBLE);
         mLoadingView.setVisibility(View.GONE);
     }
 
     @Override
-    public void showSuperheroDetails(Superhero superhero) {
-        mNavigator.navigateWith(superhero);
+    public void showFarmObjectDetails(FarmObject farmObject) {
+        mNavigator.navigateWith(farmObject);
     }
 
-    void setNavigator(SuperheroesListContracts.Navigator navigator) {
+    void setNavigator(FarmObjectListContracts.Navigator navigator) {
         mNavigator = navigator;
     }
 
     @OnTextChanged(R.id.et_filter)
     public void onTextChanged() {
-        String pattern = mFilterEditText.getText().toString();
-        mPresenter.filterSuperheroes(pattern);
+//        String pattern = mFilterEditText.getText().toString();
+//        mPresenter.filterFarmObjects(pattern);
     }
 
     @Override
-    public void onClick(Superhero superhero) {
-        mPresenter.selectSuperhero(superhero);
+    public void onClick(FarmObject farmObject) {
+        mPresenter.selectFarmObject(farmObject);
     }
 }

@@ -2,25 +2,20 @@ package wakandaforever.wakandaforever.diconfig;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
+import wakandaforever.wakandaforever.views.farmobjectlist.FarmObjectListActivity;
 
 @Module
 public abstract class ActivityBindingModule {
     @ActivityScoped
     @ContributesAndroidInjector(
-            modules = SuperheroesListModule.class
+            modules = FarmObjectListModule.class
     )
-    abstract SuperheroesListActivity superheroesListActivity();
+    abstract FarmObjectListActivity farmObjectListActivity();
 
-    @ActivityScoped
-    @ContributesAndroidInjector(
-            modules = SuperheroDetailsModule.class
-    )
-    abstract SuperheroDetailsActivity superheroDetailsActivity();
-
-    @ActivityScoped
-    @ContributesAndroidInjector(
-            modules = SuperheroCreateModule.class
-    )
-    abstract SuperheroCreateActivity superheroCreateActivity();
+//    @ActivityScoped
+//    @ContributesAndroidInjector(
+//            modules = FarmObjectDetailsModule.class
+//    )
+//    abstract FarmObjectDetailsActivity farmObjectDetailsActivity();
 }
 

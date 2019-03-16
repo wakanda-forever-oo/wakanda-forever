@@ -3,42 +3,34 @@ package wakandaforever.wakandaforever.views.farmobjectlist;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-
-import com.minkov.androidapp.R;
-import com.minkov.androidapp.models.Superhero;
-import com.minkov.androidapp.views.BaseDrawerActivity;
-import com.minkov.androidapp.views.SuperheroDetails.SuperheroDetailsActivity;
-import com.minkov.androidapp.views.SuperheroDetails.SuperheroDetailsFragment;
-import com.minkov.androidapp.views.SuperheroDetails.SuperheroDetailsPresenter;
 
 import javax.inject.Inject;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import dagger.android.support.DaggerAppCompatActivity;
+import wakandaforever.wakandaforever.R;
 
-public class SuperheroesListActivity
+public class FarmObjectListActivity
         extends DaggerAppCompatActivity
-        implements SuperheroesListContracts.Navigator {
+        implements FarmObjectListContracts.Navigator {
     public static final long IDENTIFIER = 49;
 
     @Inject
-    SuperheroesListFragment mSuperheroesListFragment;
+    FarmObjectListFragment mFarmObjectListFragment;
 
     @Inject
-    SuperheroesListContracts.Presenter mSuperheroesListPresenter;
+    FarmObjectListContracts.Presenter mFarmObjectListPresenter;
 
     @Inject
-    SuperheroDetailsFragment mSuperheroDetailsFragment;
+    FarmObjectDetailsFragment mFarmObjectDetailsFragment;
 
     @Inject
-    SuperheroDetailsPresenter mSuperheroDetailsPresenter;
+    FarmObjectDetailsPresenter mFarmObjectDetailsPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_superheroes_list);
+        setContentView(R.layout.activity_farm_object_list);
 
         ButterKnife.bind(this);
 
@@ -49,7 +41,7 @@ public class SuperheroesListActivity
 
         FragmentTransaction transaction = getFragmentManager()
                 .beginTransaction()
-                .replace(R.id.content, mSuperheroesListFragment);
+                .replace(R.id.content, mFarmObjectsListFragment);
 
         if (!isPhone()) {
             mSuperheroDetailsFragment.setPresenter(mSuperheroDetailsPresenter);

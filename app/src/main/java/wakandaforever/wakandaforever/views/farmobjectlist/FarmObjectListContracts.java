@@ -1,16 +1,16 @@
 package wakandaforever.wakandaforever.views.farmobjectlist;
 
-import com.minkov.androidapp.models.Superhero;
-
 import java.util.List;
 
-public interface SuperheroesListContracts {
+import wakandaforever.wakandaforever.models.FarmObject;
+
+public interface FarmObjectListContracts {
     interface View {
         void setPresenter(Presenter presenter);
 
-        void showSuperheroes(List<Superhero> superheroes);
+        void showFarmObjects(List<FarmObject> farmObjects);
 
-        void showEmptySuperheroesList();
+        void showEmptyFarmObjectsList();
 
         void showError(Throwable e);
 
@@ -18,21 +18,21 @@ public interface SuperheroesListContracts {
 
         void hideLoading();
 
-        void showSuperheroDetails(Superhero superhero);
+        void showFarmObjectDetails(FarmObject farmObject);
     }
 
     interface Presenter {
         void subscribe(View view);
 
-        void loadSuperheroes();
+        void loadFarmObjects();
 
-        void filterSuperheroes(String pattern);
+        void filterFarmObjects(String pattern);
 
-        void selectSuperhero(Superhero superhero);
+        void selectFarmObject(FarmObject farmObject);
     }
 
     interface Navigator {
-        void navigateWith(Superhero superhero);
+        void navigateWith(FarmObject superhero);
     }
 }
 

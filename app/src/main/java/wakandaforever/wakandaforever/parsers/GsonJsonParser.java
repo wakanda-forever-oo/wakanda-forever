@@ -1,10 +1,11 @@
 package wakandaforever.wakandaforever.parsers;
 
 import com.google.gson.Gson;
-import com.minkov.androidapp.parsers.base.JsonParser;
 
 import java.util.Arrays;
 import java.util.List;
+
+import wakandaforever.wakandaforever.parsers.base.JsonParser;
 
 public class GsonJsonParser<T> implements JsonParser<T> {
 

@@ -1,9 +1,5 @@
 package wakandaforever.wakandaforever.views.farmobjectlist;
 
-import com.minkov.androidapp.async.base.SchedulerProvider;
-import com.minkov.androidapp.models.Superhero;
-import com.minkov.androidapp.services.base.SuperheroesService;
-
 import java.util.List;
 
 import javax.inject.Inject;
@@ -11,74 +7,76 @@ import javax.inject.Inject;
 import io.reactivex.Observable;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.disposables.Disposable;
+import wakandaforever.wakandaforever.async.base.SchedulerProvider;
+import wakandaforever.wakandaforever.models.FarmObject;
+import wakandaforever.wakandaforever.services.base.FarmObjectsService;
 
-public class SuperheroesListPresenter
-        implements SuperheroesListContracts.Presenter {
+public class FarmObjectListPresenter
+        implements FarmObjectListContracts.Presenter {
 
-    private final SuperheroesService mSuperheroesService;
+    private final FarmObjectsService mFarmObjectService;
     private final SchedulerProvider mSchedulerProvider;
-    private SuperheroesListContracts.View mView;
+    private FarmObjectListContracts.View mView;
 
     @Inject
-    public SuperheroesListPresenter(
-            SuperheroesService superheroesService,
+    public FarmObjectListPresenter(
+            FarmObjectsService farmObjectService,
             SchedulerProvider schedulerProvider) {
-        mSuperheroesService = superheroesService;
+        mFarmObjectService = farmObjectService;
         mSchedulerProvider = schedulerProvider;
     }
 
     @Override
-    // same as // setView(SuperheroesListContracts.View view)
-    public void subscribe(SuperheroesListContracts.View view) {
+    public void subscribe(FarmObjectListContracts.View view) {
         mView = view;
     }
 
     @Override
-    public void loadSuperheroes() {
+    public void loadFarmObjects() {
         mView.showLoading();
         Disposable observable = Observable
-                .create((ObservableOnSubscribe<List<Superhero>>) emitter -> {
-                    List<Superhero> superheroes = mSuperheroesService.getAllSuperheroes();
-                    emitter.onNext(superheroes);
+                .create((ObservableOnSubscribe<List<FarmObject>>) emitter -> {
+                    List<FarmObject> farmObjects = mFarmObjectService.getAllFarmObjects();
+                    emitter.onNext(farmObjects);
                     emitter.onComplete();
                 })
                 .subscribeOn(mSchedulerProvider.background())
                 .observeOn(mSchedulerProvider.ui())
                 .doFinally(mView::hideLoading)
                 .subscribe(
-                        this::presentSuperheroesToView,
+                        this::presentFarmObjectsToView,
                         error -> mView.showError(error)
                 );
     }
 
     @Override
-    public void filterSuperheroes(String pattern) {
-        mView.showLoading();
-        Disposable observable = Observable
-                .create((ObservableOnSubscribe<List<Superhero>>) emitter -> {
-                    List<Superhero> superheroes = mSuperheroesService.getFilteredSuperheroes(pattern);
-                    emitter.onNext(superheroes);
-                    emitter.onComplete();
-                })
-                .subscribeOn(mSchedulerProvider.background())
-                .observeOn(mSchedulerProvider.ui())
-                .doFinally(mView::hideLoading)
-                .subscribe(
-                        this::presentSuperheroesToView,
-                        error -> mView.showError(error)
-                );
+    public void filterFarmObjects(String pattern) {
+//        mView.showLoading();
+//        Disposable observable = Observable
+//                .create((ObservableOnSubscribe<List<FarmObject>>) emitter -> {
+//                    List<FarmObject> superheroes = mFarmObjectService.getFilteredFarmObjects(pattern);
+//                    emitter.onNext(superheroes);
+//                    emitter.onComplete();
+//                })
+//                .subscribeOn(mSchedulerProvider.background())
+//                .observeOn(mSchedulerProvider.ui())
+//                .doFinally(mView::hideLoading)
+//                .subscribe(
+//                        this::presentFarmObjectToView,
+//                        error -> mView.showError(error)
+//                );
     }
 
     @Override
-    public void selectSuperhero(Superhero superhero) {
-        mView.showSuperheroDetails(superhero);
+    public void selectFarmObject(FarmObject farmObject) {
+        mView.showFarmObjectDetails(farmObject);
     }
 
-    private void presentSuperheroesToView(List<Superhero> superheroes) {
-        if (superheroes.isEmpty()) {
-            mView.showEmptySuperheroesList();
+    private void presentFarmObjectsToView(List<FarmObject> farmObjects) {
+        if (farmObjects.isEmpty()) {
+            mView.showEmptyFarmObjectsList();
         } else {
-            mView.showSuperheroes(superheroes);
+            mView.showFarmObjects(farmObjects);
         }
     }
 }

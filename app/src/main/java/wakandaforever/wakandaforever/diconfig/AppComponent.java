@@ -6,6 +6,7 @@ import dagger.BindsInstance;
 import dagger.Component;
 import dagger.android.AndroidInjector;
 import dagger.android.support.AndroidSupportInjectionModule;
+import wakandaforever.wakandaforever.AndroidApplication;
 
 import javax.inject.Singleton;
 
@@ -16,7 +17,7 @@ import javax.inject.Singleton;
         AppModule.class,
         ParsersModule.class,
         HttpModule.class,
-        RepositoriesModule.class,
+//        RepositoriesModule.class,
         ServicesModule.class,
         ValidatorsModule.class,
         AsyncModule.class,

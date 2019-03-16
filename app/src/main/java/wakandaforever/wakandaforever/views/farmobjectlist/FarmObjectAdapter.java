@@ -21,18 +21,18 @@ import butterknife.OnClick;
 import wakandaforever.wakandaforever.R;
 import wakandaforever.wakandaforever.models.FarmObject;
 
-public class FarmObjectAdapter extends RecyclerView.Adapter<FarmObjectAdapter.SuperheroViewHolder> {
-    private List<FarmObject> mSuperheroes;
-    private OnSuperheroClickListener mOnSuperheroClickListener;
+public class FarmObjectAdapter extends RecyclerView.Adapter<FarmObjectAdapter.FarmObjectViewHolder> {
+    private List<FarmObject> mFarmObjects;
+    private OnFarmObjectClickListener mOnFarmObjectClickListener;
 
     @Inject
     public FarmObjectAdapter() {
-        mSuperheroes = new ArrayList<>();
+        mFarmObjects = new ArrayList<>();
     }
 
     @NonNull
     @Override
-    public SuperheroViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public FarmObjectViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.farm_object_item, parent, false);
         int height = parent.getMeasuredHeight() / 3;
@@ -40,74 +40,74 @@ public class FarmObjectAdapter extends RecyclerView.Adapter<FarmObjectAdapter.Su
         lp.height = height;
         view.setLayoutParams(lp);
         view.setMinimumHeight(height);
-        return new SuperheroViewHolder(view);
+        return new FarmObjectViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull SuperheroViewHolder holder, int position) {
-        holder.setOnClickListener(mOnSuperheroClickListener);
-        holder.bind(mSuperheroes.get(position));
+    public void onBindViewHolder(@NonNull FarmObjectViewHolder holder, int position) {
+        holder.setOnClickListener(mOnFarmObjectClickListener);
+        holder.bind(mFarmObjects.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return mSuperheroes.size();
+        return mFarmObjects.size();
     }
 
-    public Superhero getItem(int position) {
-        return mSuperheroes.get(position);
+    public FarmObject getItem(int position) {
+        return mFarmObjects.get(position);
     }
 
     public void clear() {
-        mSuperheroes.clear();
+        mFarmObjects.clear();
     }
 
-    public void addAll(List<Superhero> superheroes) {
-        mSuperheroes.addAll(superheroes);
+    public void addAll(List<FarmObject> farmObjects) {
+        mFarmObjects.addAll(farmObjects);
     }
 
-    public void setOnSuperheroClickListener(OnSuperheroClickListener onSuperheroClickListener) {
-        this.mOnSuperheroClickListener = onSuperheroClickListener;
+    public void setOnFarmObjectClickListener(OnFarmObjectClickListener onFarmObjectClickListener) {
+        this.mOnFarmObjectClickListener = onFarmObjectClickListener;
     }
 
-    public static class SuperheroViewHolder extends RecyclerView.ViewHolder {
+    public static class FarmObjectViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.tv_name)
         TextView mNameTextView;
 
         @BindView(R.id.tv_secret_identity)
         TextView mSecretIdentityTextView;
 
-        @BindView(R.id.iv_superhero)
-        ImageView mSuperheroImageView;
-        private OnSuperheroClickListener mOnClickListener;
-        private Superhero mSuperhero;
+        @BindView(R.id.iv_farm_object)
+        ImageView mFarmObjectImageView;
+        private OnFarmObjectClickListener mOnClickListener;
+        private FarmObject mFarmObject;
 
-        SuperheroViewHolder(View view) {
+        FarmObjectViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
         }
 
-        void bind(Superhero superhero) {
-            mNameTextView.setText(superhero.getName());
-            mSecretIdentityTextView.setText(superhero.getSecretIdentity());
+        void bind(FarmObject farmObject) {
+            mNameTextView.setText(farmObject.getName());
+            mSecretIdentityTextView.setText(farmObject.getSecretIdentity());
             Picasso.get()
-                    .load(superhero.getImageUrl())
-                    .into(mSuperheroImageView);
-            mSuperhero = superhero;
+                    .load(farmObject.getImageUrl())
+                    .into(mFarmObjectImageView);
+            mFarmObject = farmObject;
         }
 
         @OnClick
         public void onClick() {
-            mOnClickListener.onClick(mSuperhero);
+            mOnClickListener.onClick(mFarmObject);
         }
 
-        public void setOnClickListener(OnSuperheroClickListener onClickListener) {
+        public void setOnClickListener(OnFarmObjectClickListener onClickListener) {
             mOnClickListener = onClickListener;
         }
     }
 
-    interface OnSuperheroClickListener {
-        void onClick(Superhero superhero);
+    interface OnFarmObjectClickListener {
+        void onClick(FarmObject farmObject);
     }
 }
 
