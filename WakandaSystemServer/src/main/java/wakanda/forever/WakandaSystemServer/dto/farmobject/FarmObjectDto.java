@@ -1,7 +1,6 @@
 package wakanda.forever.WakandaSystemServer.dto.farmobject;
 
-
-
+import java.sql.Timestamp;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,6 +19,13 @@ public class FarmObjectDto {
 	private Float soilMoisture;
 	private Float fire;
 	private Float pressure;
+	private String createdAt;
+	
+	private String convertDtoDate(Timestamp date) {
+		System.out.println("Called convertDtoDate");
+		String dateResult = date.getDate() + "-" + date.getMonth() + "-" + date.getYear() + " " + date.getHours() + ":" + date.getMinutes();
+		return dateResult;
+	}
 	
 	public FarmObjectDto(FarmObject farmObject) {
 		this.id = farmObject.getId();
@@ -29,5 +35,6 @@ public class FarmObjectDto {
 		this.soilMoisture = farmObject.getSoilMoisture();
 		this.fire = farmObject.getFire();
 		this.pressure = farmObject.getPressure();
+		this.createdAt = convertDtoDate(farmObject.getCreatedAt());
 	}
 }
