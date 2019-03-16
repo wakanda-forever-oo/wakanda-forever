@@ -1,6 +1,7 @@
 package wakanda.forever.WakandaSystemServer.controller;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,8 +36,13 @@ public class FarmController {
 	}
 	
 	@GetMapping("/all")
-	public List<FarmObject> getAll() {
-		return (List<FarmObject>) farmRepository.findAll();
+	public List<FarmObjectDto> getAll() {
+		List<FarmObjectDto> dtos = new ArrayList<>();
+		farmRepository.findAll().forEach(object -> {
+			dtos.add(new FarmObjectDto(object));
+		});
+		
+		return dtos;
 	}
 	
 	@GetMapping("/all/{id}")
