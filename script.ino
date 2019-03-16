@@ -14,6 +14,7 @@ void setup()
   Serial.begin(9600);
   delay(1000);
   pinMode(pinOut, OUTPUT);
+  digitalWrite(pinOut, LOW);
 }
 
 void loop()
@@ -21,11 +22,18 @@ void loop()
   int value = analogRead(waterRead);
   int sensorValue = analogRead(soilRead);
   int fireValue = analogRead(fireValue);
-  double moisture_percentage = ( 100 - ( (sensorValue/1023.00) * 100 ) );
+  float moisture_percentage = map(sensorValue, 0, 1023, 100, 0);
   DHT.read11(dht11Read);
 
-  digitalWrite(pinOut, HIGH);
-
+  
+  if(moisture_percentage < 50 && value < 480)
+  {
+    digitalWrite(pinOut, HIGH);
+  }
+  else if(moisture_percentage >= 60 || value >=480)
+  {
+    digitalWrite(pinOut, LOW);
+  }
 
   delay(10000);
 
@@ -47,10 +55,4 @@ void loop()
 
   
   delay(1000);
-
-  digitalWrite(pinOut, LOW);
-
-  delay(5000);
-
-  
 }
