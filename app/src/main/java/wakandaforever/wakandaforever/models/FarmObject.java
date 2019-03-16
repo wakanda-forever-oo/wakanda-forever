@@ -8,17 +8,27 @@ public class FarmObject implements Serializable {
     private float soilMoisture;
     private float temperature;
     private float waterLevel;
+    private String createdAt;
 
     public FarmObject(){
 
     }
 
-    public FarmObject(float fire, float humidity, float soilMoisture, float temperature, float waterLevel) {
-        this.fire = fire;
-        this.humidity = humidity;
-        this.soilMoisture = soilMoisture;
-        this.temperature = temperature;
-        this.waterLevel = waterLevel;
+    public FarmObject(float fire, float humidity, float soilMoisture, float temperature, float waterLevel, String createdAt) {
+        setFire(fire);
+        setHumidity(humidity);
+        setSoilMoisture(soilMoisture);
+        setTemperature(temperature);
+        setWaterLevel(waterLevel);
+        setCreatedAt(createdAt);
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
     }
 
     public float getFire() {

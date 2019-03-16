@@ -32,8 +32,8 @@ public class FarmObjectListFragment
     @BindView(R.id.loading)
     ProgressBar mLoadingView;
 
-    @BindView(R.id.et_filter)
-    EditText mFilterEditText;
+//    @BindView(R.id.et_filter)
+//    EditText mFilterEditText;
 
     @Inject
     FarmObjectAdapter mFarmObjectAdapter;
@@ -57,7 +57,7 @@ public class FarmObjectListFragment
         mFarmObjectAdapter.setOnFarmObjectClickListener(this);
 
         mFarmObjectsView.setAdapter(mFarmObjectAdapter);
-        mFarmObjectViewLayoutManager = new GridLayoutManager(getContext(), 2);
+        mFarmObjectViewLayoutManager = new GridLayoutManager(getContext(), 1);
         mFarmObjectsView.setLayoutManager(mFarmObjectViewLayoutManager);
         return view;
     }
@@ -116,11 +116,11 @@ public class FarmObjectListFragment
         mNavigator = navigator;
     }
 
-    @OnTextChanged(R.id.et_filter)
-    public void onTextChanged() {
-//        String pattern = mFilterEditText.getText().toString();
-//        mPresenter.filterFarmObjects(pattern);
-    }
+//    @OnTextChanged(R.id.et_filter)
+//    public void onTextChanged() {
+////        String pattern = mFilterEditText.getText().toString();
+////        mPresenter.filterFarmObjects(pattern);
+//    }
 
     @Override
     public void onClick(FarmObject farmObject) {

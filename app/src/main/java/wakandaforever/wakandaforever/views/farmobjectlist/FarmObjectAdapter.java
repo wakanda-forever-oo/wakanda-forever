@@ -71,11 +71,8 @@ public class FarmObjectAdapter extends RecyclerView.Adapter<FarmObjectAdapter.Fa
     }
 
     public static class FarmObjectViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.tv_name)
+        @BindView(R.id.tv_date)
         TextView mNameTextView;
-
-        @BindView(R.id.tv_secret_identity)
-        TextView mSecretIdentityTextView;
 
         private OnFarmObjectClickListener mOnClickListener;
         private FarmObject mFarmObject;
@@ -86,7 +83,7 @@ public class FarmObjectAdapter extends RecyclerView.Adapter<FarmObjectAdapter.Fa
         }
 
         void bind(FarmObject farmObject) {
-            mNameTextView.setText(String.valueOf(farmObject.getFire()));
+            mNameTextView.setText(String.valueOf(farmObject.getCreatedAt()));
 //            mSecretIdentityTextView.setText(farmObject.getSecretIdentity());
 //            Picasso.get()
 //                    .load(farmObject.getImageUrl())

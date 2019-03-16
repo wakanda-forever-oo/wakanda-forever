@@ -1,32 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/md_blue_grey_50">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageView
+            android:src="@drawable/green"
+            android:layout_width="50dp"
+            android:layout_height="55dp"
+            android:layout_alignLeft="@id/gosho"/>
+
         <LinearLayout
+            android:id="@+id/gosho"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:background="@color/primary_dark"
+            android:layout_alignParentTop="true"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tv_name"
+                android:textSize="20dp"
+                android:id="@+id/tv_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
-                android:textColor="@color/primary_light" />
+                android:textColor="@color/md_black_1000"
+                android:backgroundTint="@color/md_grey_50"
+                android:background="@color/blue"/>
 
             <TextView
-                android:id="@+id/tv_secret_identity"
+                android:textSize="20dp"
+                android:id="@+id/tv_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
-                android:textColor="@color/primary_light" />
+                android:background="@color/md_grey_50"
+                android:textColor="@color/md_grey_500"
+                android:text="This is the time"/>
         </LinearLayout>
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>
