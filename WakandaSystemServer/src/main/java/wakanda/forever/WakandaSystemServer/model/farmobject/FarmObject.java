@@ -1,7 +1,6 @@
 package wakanda.forever.WakandaSystemServer.model.farmobject;
 
 import java.sql.Timestamp;
-import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,7 +13,7 @@ import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import wakanda.forever.WakandaSystemServer.dto.FarmObjectDto;
+import wakanda.forever.WakandaSystemServer.dto.farmobject.FarmObjectDto;
 
 @Entity
 @Table(name = "FarmObject")
@@ -46,12 +45,13 @@ public class FarmObject{
 	@Column(name = "pressure")
 	private Float pressure;
 	
+	@Column(name = "fire")
+	private Float fire;
+	
 	public FarmObject(FarmObjectDto dto) {
 		this.soilMoisture = dto.getSoilMoisture();
 		this.humidity = dto.getHumidity();
 		this.pressure = dto.getWaterLevel();
 		this.temperature = dto.getTemperature();
-		
-		
 	}
 }
