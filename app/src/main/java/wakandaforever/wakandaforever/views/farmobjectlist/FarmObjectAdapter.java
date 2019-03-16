@@ -35,7 +35,7 @@ public class FarmObjectAdapter extends RecyclerView.Adapter<FarmObjectAdapter.Fa
     public FarmObjectViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.farm_object_item, parent, false);
-        int height = parent.getMeasuredHeight() / 3;
+        int height = parent.getMeasuredHeight() / 10;
         ViewGroup.LayoutParams lp = view.getLayoutParams();
         lp.height = height;
         view.setLayoutParams(lp);
@@ -77,8 +77,6 @@ public class FarmObjectAdapter extends RecyclerView.Adapter<FarmObjectAdapter.Fa
         @BindView(R.id.tv_secret_identity)
         TextView mSecretIdentityTextView;
 
-        @BindView(R.id.iv_farm_object)
-        ImageView mFarmObjectImageView;
         private OnFarmObjectClickListener mOnClickListener;
         private FarmObject mFarmObject;
 

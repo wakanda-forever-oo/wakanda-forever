@@ -24,11 +24,11 @@
                 android:layout_alignParentTop="true" />
 
             <FrameLayout
-                android:id="@+id/content_details"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentTop="true"
-                android:layout_toEndOf="@id/content" />
+            android:id="@+id/content_details"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@id/content" />
         </RelativeLayout>
 
     </RelativeLayout>

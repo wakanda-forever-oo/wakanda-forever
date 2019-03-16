@@ -8,6 +8,7 @@ import io.reactivex.Observable;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.disposables.Disposable;
 import wakandaforever.wakandaforever.async.base.SchedulerProvider;
+import wakandaforever.wakandaforever.http.OkHttpHttpRequester;
 import wakandaforever.wakandaforever.models.FarmObject;
 import wakandaforever.wakandaforever.services.base.FarmObjectsService;
 
@@ -36,7 +37,7 @@ public class FarmObjectListPresenter
         mView.showLoading();
         Disposable observable = Observable
                 .create((ObservableOnSubscribe<List<FarmObject>>) emitter -> {
-                    List<FarmObject> farmObjects = mFarmObjectService.getAllFarmObjects();
+                    List<FarmObject> farmObjects = new OkHttpHttpRequester().getAllFarmObjects();
                     emitter.onNext(farmObjects);
                     emitter.onComplete();
                 })

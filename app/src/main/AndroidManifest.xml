@@ -3,6 +3,7 @@
     package="wakandaforever.wakandaforever">
 
     <application
+        android:name=".AndroidApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -10,15 +11,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".views.farmobjectdetails.FarmObjectDetailsActivity"></activity>
-        <activity android:name=".views.BaseDrawerActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" />
+        <activity android:name=".views.farmobjectlist.FarmObjectListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".views.farmobjectlist.FarmObjectListActivity" />
     </application>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
 </manifest>

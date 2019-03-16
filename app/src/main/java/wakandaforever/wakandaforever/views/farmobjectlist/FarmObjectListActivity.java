@@ -50,14 +50,15 @@ public class FarmObjectListActivity
 
         if (!isPhone()) {
             mFarmObjectDetailsFragment.setPresenter(mFarmObjectDetailsPresenter);
-            transaction.replace(R.id.content_details, mFarmObjectDetailsFragment);
+            //transaction.replace(R.id.content_details, mFarmObjectDetailsFragment);
         }
 
         transaction.commit();
     }
 
     private boolean isPhone() {
-        return findViewById(R.id.content_details) == null;
+        return true;
+        //return findViewById(R.id.content_details) == null;
     }
 
     @Override

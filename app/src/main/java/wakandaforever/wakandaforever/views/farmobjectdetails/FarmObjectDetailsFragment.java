@@ -51,8 +51,8 @@ public class FarmObjectDetailsFragment
 
     @Override
     public void showFarmObject(FarmObject farmObject) {
-//        mNameTextView.setText(farmObject.getName());
-//        mSecretIdentityTextView.setText(farmObject.getSecretIdentity());
+        mNameTextView.setText(String.valueOf(farmObject.getFire()));
+        mSecretIdentityTextView.setText(String.valueOf(farmObject.getFire()));
     }
 
     @Override
