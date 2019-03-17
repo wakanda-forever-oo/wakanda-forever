@@ -38,9 +38,9 @@ public class TemperatureGraphFragment
 
     @BindView(R.id.humidity_bar)
     GraphView barView;
-
-    @BindView(R.id.soilMoisture_point)
-    GraphView soilMoistureGraph;
+//
+//    @BindView(R.id.soilMoisture_point)
+//    GraphView soilMoistureGraph;
 
     @Inject
     public TemperatureGraphFragment() {

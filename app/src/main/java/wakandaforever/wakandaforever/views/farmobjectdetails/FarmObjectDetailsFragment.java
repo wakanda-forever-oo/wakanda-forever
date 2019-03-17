@@ -60,7 +60,7 @@ public class FarmObjectDetailsFragment
         ButterKnife.bind(this, view);
 
         List<FarmObject> farmObjects = new ArrayList<>();
-        farmObjects.add(new FarmObject(1, 2, 3, 4, 5, 6, "dsadsa"));
+        farmObjects.add(new FarmObject(1, 2, 3, 4, 5, 6, 1, "dsadsa"));
         mFarmObjectDetailsViewLayoutManager = new GridLayoutManager(getContext(), 2);
         return view;
     }

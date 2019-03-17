@@ -50,9 +50,8 @@ public abstract class BaseDrawerActivity extends DaggerAppCompatActivity {
                 .withActivity(this)
                 .withToolbar(mToolbar)
                 .addDrawerItems(
-                        listSuperheroesItem,
-                        new DividerDrawerItem(),
-                        graph
+                        graph,
+                        new DividerDrawerItem()
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override

@@ -3,6 +3,7 @@ package wakandaforever.wakandaforever.models;
 import java.io.Serializable;
 
 public class FarmObject implements Serializable {
+    private long id;
     private float fire;
     private float humidity;
     private float soilMoisture;
@@ -15,7 +16,8 @@ public class FarmObject implements Serializable {
 
     }
 
-    public FarmObject(float fire, float humidity, float soilMoisture, float temperature, float waterLevel, float pressure, String createdAt) {
+    public FarmObject(long id, float fire, float humidity, float soilMoisture, float temperature, float waterLevel, float pressure, String createdAt) {
+        setId(id);
         setFire(fire);
         setHumidity(humidity);
         setSoilMoisture(soilMoisture);
@@ -23,6 +25,14 @@ public class FarmObject implements Serializable {
         setWaterLevel(waterLevel);
         setPressure(pressure);
         setCreatedAt(createdAt);
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public float getPressure() {

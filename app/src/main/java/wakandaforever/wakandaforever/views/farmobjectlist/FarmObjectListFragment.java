@@ -1,5 +1,6 @@
 package wakandaforever.wakandaforever.views.farmobjectlist;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -7,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -126,4 +128,11 @@ public class FarmObjectListFragment
     public void onClick(FarmObject farmObject) {
         mPresenter.selectFarmObject(farmObject);
     }
+
+//    public void alert(){
+//        AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+//        alert.setTitle("Android Studio");
+//        alert.setMessage("DO you love Android?");
+//        alert.create().show();
+//    }
 }
