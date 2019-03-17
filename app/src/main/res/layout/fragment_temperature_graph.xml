@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.TemperatureGraph.TemperatureGraphFragment">
+
+    <com.jjoe64.graphview.GraphView
+        android:layout_width="match_parent"
+        android:layout_height="200dip"
+        android:id="@+id/graph" />
+
+    <TextView
+        android:id="@+id/tv_details_part_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Humidity Bar"
+        android:textSize="26dp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textColor="@color/md_grey_850"
+        android:layout_marginTop="220dp"/>
+
+    <com.jjoe64.graphview.GraphView
+        android:layout_width="match_parent"
+        android:layout_height="200dip"
+        android:id="@+id/humidity_bar"
+        android:layout_marginTop="260dp"/>
+
+    <!--<TextView-->
+        <!--android:id="@+id/tv_details_part_1"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:text="Soil Moisture Graph"-->
+        <!--android:textSize="26dp"-->
+        <!--android:textStyle="bold"-->
+        <!--android:textAlignment="center"-->
+        <!--android:textColor="@color/md_grey_850"-->
+        <!--android:layout_marginTop="480dp"/>-->
+
+    <!--<com.jjoe64.graphview.GraphView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="100dip"-->
+        <!--android:id="@+id/soilMoisture_point"-->
+        <!--android:layout_marginTop="520dp"/>-->
+
+</FrameLayout>

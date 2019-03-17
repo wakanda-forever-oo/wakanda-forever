@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.farmobjectdetails.FarmObjectDetailsActivity">
+    tools:context=".views.TemperatureGraph.TemperatureGraphActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -15,7 +15,7 @@
             android:id="@+id/tv_details_part_1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Details"
+            android:text="Temperature Graph"
             android:textSize="26dp"
             android:textStyle="bold"
             android:textAlignment="center"

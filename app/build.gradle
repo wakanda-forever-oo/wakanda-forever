@@ -66,4 +66,7 @@ dependencies {
     implementation "com.android.support:support-annotations"
     implementation "com.android.support:design"
 
+    //Graph
+    implementation 'com.jjoe64:graphview:4.2.2'
+
 }

@@ -24,6 +24,7 @@ import java.util.function.Function;
 import butterknife.BindView;
 import dagger.android.support.DaggerAppCompatActivity;
 import wakandaforever.wakandaforever.R;
+import wakandaforever.wakandaforever.views.TemperatureGraph.TemperatureGraphActivity;
 import wakandaforever.wakandaforever.views.farmobjectlist.FarmObjectListActivity;
 
 public abstract class BaseDrawerActivity extends DaggerAppCompatActivity {
@@ -40,16 +41,18 @@ public abstract class BaseDrawerActivity extends DaggerAppCompatActivity {
                 .withIdentifier(FarmObjectListActivity.IDENTIFIER)
                 .withName("Superheroes");
 
-//        PrimaryDrawerItem createSuperheroItem = new PrimaryDrawerItem()
-//                .withIdentifier(SuperheroCreateActivity.IDENTIFIER)
-//                .withIcon(android.R.drawable.btn_plus)
-//                .withName("Create superhero");
+        PrimaryDrawerItem graph = new PrimaryDrawerItem()
+                .withIdentifier(TemperatureGraphActivity.IDENTIFIER)
+                .withIcon(android.R.drawable.btn_plus)
+                .withName("Temperature Graph");
 
         Drawer drawer = new DrawerBuilder()
                 .withActivity(this)
                 .withToolbar(mToolbar)
                 .addDrawerItems(
-                        listSuperheroesItem
+                        listSuperheroesItem,
+                        new DividerDrawerItem(),
+                        graph
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
@@ -76,9 +79,9 @@ public abstract class BaseDrawerActivity extends DaggerAppCompatActivity {
     }
 
     private Intent getNextIntent(long identifier) {
-//        if (identifier == FarmObjectCreateActivity.IDENTIFIER) {
-//            return new Intent(this, SuperheroCreateActivity.class);
-//        }
+        if (identifier == TemperatureGraphActivity.IDENTIFIER) {
+            return new Intent(this, TemperatureGraphActivity.class);
+        }
 
         return null;
     }
