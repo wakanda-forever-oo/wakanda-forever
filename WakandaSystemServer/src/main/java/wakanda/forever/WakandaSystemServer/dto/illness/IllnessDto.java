@@ -2,6 +2,7 @@ package wakanda.forever.WakandaSystemServer.dto.illness;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.TimeZone;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,7 +21,9 @@ public class IllnessDto {
 	
 	private String convertDtoDate(Timestamp date) {
 //		System.out.println("Called convertDtoDate");
-		return new SimpleDateFormat("dd-MM-yyyy hh:mm").format(date.getTime());
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm");
+		dateFormat.setTimeZone(TimeZone.getTimeZone("EET"));
+		return dateFormat.format(date.getTime());
 	}
 	
 	public IllnessDto(Illness entity) {

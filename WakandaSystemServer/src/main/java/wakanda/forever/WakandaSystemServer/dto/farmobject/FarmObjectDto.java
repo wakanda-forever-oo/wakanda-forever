@@ -2,6 +2,7 @@ package wakanda.forever.WakandaSystemServer.dto.farmobject;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.TimeZone;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,10 +22,13 @@ public class FarmObjectDto {
 	private Float fire;
 	private Float pressure;
 	private String createdAt;
+	private Float danger;
 	
 	private String convertDtoDate(Timestamp date) {
 //		System.out.println("Called convertDtoDate");
-		return new SimpleDateFormat("dd-MM-yyyy hh:mm").format(date.getTime());		
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm");
+		dateFormat.setTimeZone(TimeZone.getTimeZone("EET"));
+		return dateFormat.format(date.getTime());		
 	}
 	
 	public FarmObjectDto(FarmObject farmObject) {
@@ -35,6 +39,6 @@ public class FarmObjectDto {
 		this.soilMoisture = farmObject.getSoilMoisture();
 		this.fire = farmObject.getFire();
 		this.pressure = farmObject.getPressure();
-		this.createdAt = convertDtoDate(farmObject.getCreatedAt());
+		this.createdAt = convertDtoDate(farmObject.getCreatedAt());		
 	}
 }
