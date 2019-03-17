@@ -3,14 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:layout_width="70dp"
-        android:layout_height="55dp"
-        android:layout_margin="20dp"
-        android:padding="7dp"
-        android:src="@drawable/green"
-        android:background="@color/md_grey_200"/>
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -25,7 +17,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tv_date"
+                android:id="@+id/tv_detail_item_value"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/md_grey_200"
@@ -34,7 +26,7 @@
                 android:textSize="20dp" />
 
             <TextView
-                android:id="@+id/tv_time"
+                android:id="@+id/tv_detail_item_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/md_grey_200"

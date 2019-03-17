@@ -4,7 +4,7 @@ import wakandaforever.wakandaforever.models.FarmObject;
 
 public interface FarmObjectDetailsContracts {
     interface View {
-        void showFarmObject(FarmObject farmObject);
+        FarmObject showFarmObject(FarmObject farmObject);
 
         void setPresenter(Presenter presenter);
 

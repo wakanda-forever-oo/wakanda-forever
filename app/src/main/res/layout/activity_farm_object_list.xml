@@ -10,27 +10,27 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/drawer_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content" >
+
+        </android.support.v7.widget.Toolbar>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/drawer_toolbar"
-            android:layout_marginTop="0dp">
+            android:layout_below="@id/drawer_toolbar">
 
             <FrameLayout
                 android:id="@+id/content"
-                android:layout_width="200dp"
+                android:layout_width="450dp"
                 android:layout_height="match_parent"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="50dp" />
+                android:layout_alignParentTop="true" />
 
             <FrameLayout
-                android:id="@+id/content_details"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentTop="true"
-                android:layout_toEndOf="@id/content" />
+            android:id="@+id/content_details"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@id/content" />
         </RelativeLayout>
 
     </RelativeLayout>

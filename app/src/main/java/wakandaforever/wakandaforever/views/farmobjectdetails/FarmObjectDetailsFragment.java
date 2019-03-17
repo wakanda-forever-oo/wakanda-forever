@@ -2,10 +2,15 @@ package wakandaforever.wakandaforever.views.farmobjectdetails;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -20,11 +25,26 @@ public class FarmObjectDetailsFragment
 
     private FarmObjectDetailsContracts.Presenter mPresenter;
 
-    @BindView(R.id.tv_name)
-    TextView mNameTextView;
+    @BindView(R.id.tv_details_humidity)
+    TextView mHumidityTextView;
 
-    @BindView(R.id.tv_secret_identity)
-    TextView mSecretIdentityTextView;
+    @BindView(R.id.tv_details_temperature)
+    TextView mTemperatureTextView;
+
+    @BindView(R.id.tv_details_waterLevel)
+    TextView mWaterLevelTextView;
+
+    @BindView(R.id.tv_details_soilMoisture)
+    TextView mSoilMoistureTextView;
+
+    @BindView(R.id.tv_details_fire)
+    TextView mFireTextView;
+
+    @BindView(R.id.tv_details_pressure)
+    TextView mPressureTextView;
+
+
+    private GridLayoutManager mFarmObjectDetailsViewLayoutManager;
 
     @Inject
     public FarmObjectDetailsFragment() {
@@ -39,6 +59,9 @@ public class FarmObjectDetailsFragment
 
         ButterKnife.bind(this, view);
 
+        List<FarmObject> farmObjects = new ArrayList<>();
+        farmObjects.add(new FarmObject(1, 2, 3, 4, 5, 6, "dsadsa"));
+        mFarmObjectDetailsViewLayoutManager = new GridLayoutManager(getContext(), 2);
         return view;
     }
 
@@ -50,9 +73,20 @@ public class FarmObjectDetailsFragment
     }
 
     @Override
-    public void showFarmObject(FarmObject farmObject) {
-        mNameTextView.setText(String.valueOf(farmObject.getFire()));
-        mSecretIdentityTextView.setText(String.valueOf(farmObject.getFire()));
+    public FarmObject showFarmObject(FarmObject farmObject) {
+        FarmObject farmObject1 = (FarmObject)getActivity().getIntent().getExtras().getSerializable("SUPERHERO_EXTRA_KEY");
+
+        mHumidityTextView.setText(String.valueOf(farmObject1.getHumidity() + "%"));
+        mTemperatureTextView.setText(String.valueOf(farmObject1.getTemperature()) + " C");
+        mWaterLevelTextView.setText(String.valueOf(farmObject1.getWaterLevel())); //TODO to came with formula
+        mSoilMoistureTextView.setText(String.valueOf(farmObject1.getSoilMoisture()) + "%");
+        if(farmObject.getFire() > 100) {
+            mFireTextView.setText("OFF");
+        }else{
+            mFireTextView.setText("ON");
+        }
+        mPressureTextView.setText(String.valueOf((int)farmObject1.getPressure()) + " kPa");
+        return farmObject1;
     }
 
     @Override

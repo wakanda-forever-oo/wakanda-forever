@@ -39,7 +39,7 @@ public class FarmObjectDetailsPresenter
         mView.showLoading();
         Disposable observable = Observable
                 .create((ObservableOnSubscribe<FarmObject>) emitter -> {
-                    FarmObject farmObject = new FarmObject(1L, 1L, 1L, 1L, 1L, "aaa");//mSuperheroesService.getDetailsById(mFarmObjectId);
+                    FarmObject farmObject = mView.showFarmObject(new FarmObject());//mSuperheroesService.getDetailsById(mFarmObjectId);
                     emitter.onNext(farmObject);
                     emitter.onComplete();
                 })

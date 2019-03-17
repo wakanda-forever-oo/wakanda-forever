@@ -72,18 +72,21 @@ public class FarmObjectAdapter extends RecyclerView.Adapter<FarmObjectAdapter.Fa
 
     public static class FarmObjectViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.tv_date)
-        TextView mNameTextView;
+        TextView mDateTextView;
+        @BindView(R.id.tv_time)
+        TextView mTimeTextView;
 
         private OnFarmObjectClickListener mOnClickListener;
         private FarmObject mFarmObject;
 
-        FarmObjectViewHolder(View view) {
+        public FarmObjectViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
         }
 
         void bind(FarmObject farmObject) {
-            mNameTextView.setText(String.valueOf(farmObject.getCreatedAt()));
+            mDateTextView.setText(String.valueOf(farmObject.getCreatedAt()).split(" ")[0]);
+            mTimeTextView.setText(String.valueOf(farmObject.getCreatedAt()).split(" ")[1]);
 //            mSecretIdentityTextView.setText(farmObject.getSecretIdentity());
 //            Picasso.get()
 //                    .load(farmObject.getImageUrl())
