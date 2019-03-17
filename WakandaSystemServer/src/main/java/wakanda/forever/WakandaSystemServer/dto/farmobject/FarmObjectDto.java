@@ -1,18 +1,17 @@
 package wakanda.forever.WakandaSystemServer.dto.farmobject;
 
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.util.TimeZone;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import wakanda.forever.WakandaSystemServer.dto.BaseDto;
 import wakanda.forever.WakandaSystemServer.model.farmobject.FarmObject;
 
 @Data
+@EqualsAndHashCode(callSuper = false)
 @AllArgsConstructor
 @NoArgsConstructor
-public class FarmObjectDto {
+public class FarmObjectDto extends BaseDto {
 	
 	private Long id;
 	private Float humidity;
@@ -23,13 +22,6 @@ public class FarmObjectDto {
 	private Float pressure;
 	private String createdAt;
 	private Float danger;
-	
-	private String convertDtoDate(Timestamp date) {
-//		System.out.println("Called convertDtoDate");
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm");
-		dateFormat.setTimeZone(TimeZone.getTimeZone("EET"));
-		return dateFormat.format(date.getTime());		
-	}
 	
 	public FarmObjectDto(FarmObject farmObject) {
 		this.id = farmObject.getId();

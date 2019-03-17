@@ -2,13 +2,16 @@ package wakanda.forever.WakandaSystemServer.dto.weather;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import wakanda.forever.WakandaSystemServer.dto.BaseDto;
 import wakanda.forever.WakandaSystemServer.model.weather.DayPrediction;
 
 @Data
 @AllArgsConstructor
+@EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
-public class DayPredictionDto {
+public class DayPredictionDto extends BaseDto {
 	
 	private Long id;
 	private String datetime;
@@ -20,6 +23,7 @@ public class DayPredictionDto {
 	private Float grnd_level;
 	private Integer humidity;
 	private Float wind_speed;
+	private String createdAt;
 	
 	public DayPredictionDto(DayPrediction entity) {
 		this.id = entity.getId();
@@ -32,6 +36,7 @@ public class DayPredictionDto {
 		this.grnd_level = entity.getGrndLevel();
 		this.humidity = entity.getHumidity();
 		this.wind_speed = entity.getWindSpeed();
+		this.createdAt = convertDtoDate(entity.getCreatedAt());
 	}
 
 	public DayPredictionDto(DayPredictionDto prd) {

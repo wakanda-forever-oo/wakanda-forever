@@ -18,7 +18,6 @@ import wakanda.forever.WakandaSystemServer.dto.weather.DayPredictionDto;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class DayPrediction {
 	
 	@Id
