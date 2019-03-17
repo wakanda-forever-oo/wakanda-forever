@@ -21,6 +21,6 @@ public class PredictionDto extends BaseDto{
 	
 	public PredictionDto(Prediction entity) {
 		this.id = entity.getId();
-		this.createdAt = convertDtoDate(entity.getCreatedAt());		
+		this.createdAt = convertDtoDate(entity.getCreatedAt());
 	}
 }

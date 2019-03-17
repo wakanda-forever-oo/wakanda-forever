@@ -67,6 +67,7 @@ public class WeatherController {
 	
 	@PostMapping("/prediction/save")
 	public Prediction savePrediction(@RequestBody PredictionDto dto) {
+		System.out.println("Called prediction/save");
 		Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 		List<DayPrediction> dayPredictions = populateDayPredictions(dto, currentTime);
 		Prediction entity = new Prediction(dto);
@@ -85,9 +86,9 @@ public class WeatherController {
 		predictionRepository.findAllSortedByDate(PageRequest.of(0, 300)).forEach(entity -> {
 			PredictionDto dto = new PredictionDto(entity);
 			dto.setResult(getDayPredictionDtos(entity));
-			resultDtos.add(new PredictionDto());
+			resultDtos.add(dto);
 		});
-		
+				
 		return resultDtos;
 	}
 	
