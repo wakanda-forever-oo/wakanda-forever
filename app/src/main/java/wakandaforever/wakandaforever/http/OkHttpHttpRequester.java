@@ -22,6 +22,7 @@ import okhttp3.Response;
 import okhttp3.ResponseBody;
 import wakandaforever.wakandaforever.models.FarmObject;
 import wakandaforever.wakandaforever.models.Illness;
+import wakandaforever.wakandaforever.models.Prediction;
 
 public class OkHttpHttpRequester implements HttpRequester {
     public OkHttpHttpRequester() {
@@ -120,6 +121,38 @@ public class OkHttpHttpRequester implements HttpRequester {
         Type listType = new TypeToken<ArrayList<Illness>>() {
         }.getType();
         List<Illness> productsDetailsDtos = null;
+        try {
+            productsDetailsDtos = new Gson().fromJson(body2.string(), listType);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return productsDetailsDtos;
+    }
+
+    public List<Prediction> getAllPredictions() {
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+        //final MediaType JSON = MediaType.get("application/json; charset=utf-8");
+//        ObjectMapper objectMapper = new ObjectMapper();
+        Request request = new Request.Builder()
+                .get()
+                .url("http://80.240.21.133:7777/prediction/today")
+                .build();
+
+        OkHttpClient client = new OkHttpClient();
+
+        Response response = null;
+        try {
+            response = client.newCall(request)
+                    .execute();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        ResponseBody body2 = response.body();
+        Type listType = new TypeToken<ArrayList<Prediction>>() {
+        }.getType();
+        ArrayList<Prediction> productsDetailsDtos = null;
         try {
             productsDetailsDtos = new Gson().fromJson(body2.string(), listType);
         } catch (IOException e) {

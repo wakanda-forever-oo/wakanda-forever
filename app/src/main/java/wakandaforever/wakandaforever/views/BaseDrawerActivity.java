@@ -26,6 +26,7 @@ import dagger.android.support.DaggerAppCompatActivity;
 import wakandaforever.wakandaforever.R;
 import wakandaforever.wakandaforever.views.TemperatureGraph.TemperatureGraphActivity;
 import wakandaforever.wakandaforever.views.farmobjectlist.FarmObjectListActivity;
+import wakandaforever.wakandaforever.views.weatherprediction.WeatherPredictionActivity;
 
 public abstract class BaseDrawerActivity extends DaggerAppCompatActivity {
 
@@ -37,21 +38,30 @@ public abstract class BaseDrawerActivity extends DaggerAppCompatActivity {
     }
 
     public void setupDrawer() {
-        PrimaryDrawerItem listSuperheroesItem = new PrimaryDrawerItem()
+        PrimaryDrawerItem listFarmObjectsItem = new PrimaryDrawerItem()
                 .withIdentifier(FarmObjectListActivity.IDENTIFIER)
-                .withName("Superheroes");
+                .withIcon(android.R.drawable.btn_plus)
+                .withName("Farm Objects");
 
         PrimaryDrawerItem graph = new PrimaryDrawerItem()
                 .withIdentifier(TemperatureGraphActivity.IDENTIFIER)
                 .withIcon(android.R.drawable.btn_plus)
                 .withName("Temperature Graph");
 
+        PrimaryDrawerItem prediction = new PrimaryDrawerItem()
+                .withIdentifier(WeatherPredictionActivity.IDENTIFIER)
+                .withIcon(android.R.drawable.btn_plus)
+                .withName("Weather Prediction");
+
         Drawer drawer = new DrawerBuilder()
                 .withActivity(this)
                 .withToolbar(mToolbar)
                 .addDrawerItems(
+                        listFarmObjectsItem,
+                        new DividerDrawerItem(),
                         graph,
-                        new DividerDrawerItem()
+                        new DividerDrawerItem(),
+                        prediction
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
@@ -80,6 +90,13 @@ public abstract class BaseDrawerActivity extends DaggerAppCompatActivity {
     private Intent getNextIntent(long identifier) {
         if (identifier == TemperatureGraphActivity.IDENTIFIER) {
             return new Intent(this, TemperatureGraphActivity.class);
+        }
+        else if (identifier == WeatherPredictionActivity.IDENTIFIER) {
+            return new Intent(this, WeatherPredictionActivity.class);
+        }
+
+        else if (identifier == FarmObjectListActivity.IDENTIFIER){
+            return new Intent(this, FarmObjectListActivity.class);
         }
 
         return null;

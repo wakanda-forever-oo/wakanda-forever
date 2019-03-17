@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".views.TemperatureGraph.TemperatureGraphActivity"></activity>
+        <activity android:name=".views.weatherprediction.WeatherPredictionActivity"></activity>
+        <activity android:name=".views.TemperatureGraph.TemperatureGraphActivity" />
         <activity android:name=".views.farmobjectdetails.FarmObjectDetailsActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".views.farmobjectlist.FarmObjectListActivity">

@@ -5,6 +5,7 @@ import dagger.android.ContributesAndroidInjector;
 import wakandaforever.wakandaforever.views.TemperatureGraph.TemperatureGraphActivity;
 import wakandaforever.wakandaforever.views.farmobjectdetails.FarmObjectDetailsActivity;
 import wakandaforever.wakandaforever.views.farmobjectlist.FarmObjectListActivity;
+import wakandaforever.wakandaforever.views.weatherprediction.WeatherPredictionActivity;
 
 @Module
 public abstract class ActivityBindingModule {
@@ -25,5 +26,11 @@ public abstract class ActivityBindingModule {
             modules = TemperatureGraphModule.class
     )
     abstract TemperatureGraphActivity temperatureGraphActivity();
+
+    @ActivityScoped
+    @ContributesAndroidInjector(
+            modules = WeatherPredictionModule.class
+    )
+    abstract WeatherPredictionActivity weatherPredictionActivity();
 }
 

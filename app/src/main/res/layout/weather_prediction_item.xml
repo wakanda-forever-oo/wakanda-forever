@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/gosho"
+            android:layout_width="420dp"
+            android:layout_height="220dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_wp_datetime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/md_grey_200"
+                android:textAlignment="center"
+                android:textColor="@color/md_black_1000"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/tv_wp_grnd_level"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/md_grey_200"
+                android:textAlignment="center"
+                android:textColor="@color/md_black_1000"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/tv_wp_humidity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/md_grey_200"
+                android:textAlignment="center"
+                android:textColor="@color/md_black_1000"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/tv_wp_pressure"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/md_grey_200"
+                android:textAlignment="center"
+                android:textColor="@color/md_black_1000"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/tv_wp_sea_level"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/md_grey_200"
+                android:textAlignment="center"
+                android:textColor="@color/md_black_1000"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/tv_wp_temperature"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/md_grey_200"
+                android:textAlignment="center"
+                android:textColor="@color/md_black_1000"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/tv_wp_temperature_max"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/md_grey_200"
+                android:textAlignment="center"
+                android:textColor="@color/md_black_1000"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/tv_wp_temperature_min"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/md_grey_200"
+                android:textAlignment="center"
+                android:textColor="@color/md_black_1000"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/tv_wp_wind_speed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/md_grey_200"
+                android:textAlignment="center"
+                android:textColor="@color/md_black_1000"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>
